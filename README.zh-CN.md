@@ -45,9 +45,9 @@ tiangong-wiki skill update --all
 安装 npm 包后，将其注册到你的 Agent：
 
 ```bash
-npx skills add Biaoo/tiangong-wiki -a codex          # Codex
-npx skills add Biaoo/tiangong-wiki -a claude-code    # Claude Code
-npx skills add Biaoo/tiangong-wiki -a codex -g       # 全局安装（跨项目可用）
+npx skills add tiangong-ai/wiki -a codex          # Codex
+npx skills add tiangong-ai/wiki -a claude-code    # Claude Code
+npx skills add tiangong-ai/wiki -a codex -g       # 全局安装（跨项目可用）
 ```
 
 或使用配置向导一步完成：
@@ -265,7 +265,7 @@ Vault        vault list | diff | queue
 ## 开发
 
 ```bash
-git clone https://github.com/Biaoo/tiangong-wiki.git
+git clone https://github.com/tiangong-ai/wiki.git tiangong-wiki
 cd tiangong-wiki
 npm install && npm run build
 
