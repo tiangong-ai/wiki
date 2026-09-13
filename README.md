@@ -45,9 +45,9 @@ tiangong-wiki skill update --all
 After installing the npm package, register it with your agent:
 
 ```bash
-npx skills add Biaoo/tiangong-wiki -a codex          # Codex
-npx skills add Biaoo/tiangong-wiki -a claude-code    # Claude Code
-npx skills add Biaoo/tiangong-wiki -a codex -g       # Global (cross-project)
+npx skills add tiangong-ai/wiki -a codex          # Codex
+npx skills add tiangong-ai/wiki -a claude-code    # Claude Code
+npx skills add tiangong-ai/wiki -a codex -g       # Global (cross-project)
 ```
 
 Or let the setup wizard handle everything:
@@ -265,7 +265,7 @@ See [references/cli-interface.md](./references/cli-interface.md) for the full co
 ## Development
 
 ```bash
-git clone https://github.com/Biaoo/tiangong-wiki.git
+git clone https://github.com/tiangong-ai/wiki.git tiangong-wiki
 cd tiangong-wiki
 npm install && npm run build
 

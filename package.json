@@ -8,11 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Biaoo/tiangong-wiki.git"
+    "url": "git+https://github.com/tiangong-ai/wiki.git"
   },
-  "homepage": "https://github.com/Biaoo/tiangong-wiki#readme",
+  "homepage": "https://github.com/tiangong-ai/wiki#readme",
   "bugs": {
-    "url": "https://github.com/Biaoo/tiangong-wiki/issues"
+    "url": "https://github.com/tiangong-ai/wiki/issues"
   },
   "license": "MIT",
   "bin": {
