@@ -1,10 +1,10 @@
-# @biaoo/tiangong-wiki
+# @tiangong-ai/wiki
 
 [中文](./README.zh-CN.md)
 
 > Inspired by Karpathy's [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) — instead of re-deriving answers from raw documents on every query (like RAG), the LLM **builds and maintains a persistent wiki** that compounds over time.
 
-`@biaoo/tiangong-wiki` is the infrastructure for this pattern: a CLI that turns a directory of Markdown files into a queryable knowledge base with full-text search, semantic search, knowledge graph, and an interactive dashboard.
+`@tiangong-ai/wiki` is the infrastructure for this pattern: a CLI that turns a directory of Markdown files into a queryable knowledge base with full-text search, semantic search, knowledge graph, and an interactive dashboard.
 
 ## Features
 
@@ -21,7 +21,7 @@
 ## Install
 
 ```bash
-npm install -g @biaoo/tiangong-wiki
+npm install -g @tiangong-ai/wiki
 ```
 
 ## Update
@@ -29,7 +29,7 @@ npm install -g @biaoo/tiangong-wiki
 Upgrade the npm package itself:
 
 ```bash
-npm install -g @biaoo/tiangong-wiki@latest
+npm install -g @tiangong-ai/wiki@latest
 ```
 
 Refresh workspace-local managed skills after upgrading the CLI or when upstream skill content changes:

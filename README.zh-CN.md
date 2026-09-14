@@ -1,10 +1,10 @@
-# @biaoo/tiangong-wiki
+# @tiangong-ai/wiki
 
 [English](./README.md)
 
 > 受 Karpathy 的 [LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) 启发 —— 不再像 RAG 那样每次从原始文档重新推导答案，而是让 LLM **构建并维护一个持久化的 wiki**，知识随使用不断积累。
 
-`@biaoo/tiangong-wiki` 为这个模式提供基础设施：一个 CLI，将 Markdown 文件目录变为可查询的知识库，支持全文搜索、语义搜索、知识图谱和交互式仪表盘。
+`@tiangong-ai/wiki` 为这个模式提供基础设施：一个 CLI，将 Markdown 文件目录变为可查询的知识库，支持全文搜索、语义搜索、知识图谱和交互式仪表盘。
 
 ## 特性
 
@@ -21,7 +21,7 @@
 ## 安装
 
 ```bash
-npm install -g @biaoo/tiangong-wiki
+npm install -g @tiangong-ai/wiki
 ```
 
 ## 更新
@@ -29,7 +29,7 @@ npm install -g @biaoo/tiangong-wiki
 升级 npm 包本身：
 
 ```bash
-npm install -g @biaoo/tiangong-wiki@latest
+npm install -g @tiangong-ai/wiki@latest
 ```
 
 升级 CLI 后，或上游 skill 内容有更新时，刷新工作区本地 managed skills：
