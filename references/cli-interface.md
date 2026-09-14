@@ -7,7 +7,7 @@ All commands are invoked through a single entry point:
 tiangong-wiki <command> [options]
 
 # npx
-npx @biaoo/tiangong-wiki <command> [options]
+npx @tiangong-ai/tiangong-wiki <command> [options]
 
 # Development
 npm run dev -- <command> [options]
