@@ -1,5 +1,5 @@
 {
-  "name": "@tiangong-ai/tiangong-wiki",
+  "name": "@tiangong-ai/wiki",
   "version": "0.3.14",
   "description": "Local-first wiki index and query engine for Markdown knowledge pages (Tiangong Wiki).",
   "type": "module",
