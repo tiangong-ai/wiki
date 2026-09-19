@@ -24,3 +24,6 @@ node_modules/
 dist/
 build/
 *.log
+
+# Local documentation reports
+.docpact/runs/

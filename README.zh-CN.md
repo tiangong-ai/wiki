@@ -1,3 +1,23 @@
+---
+docType: guide
+scope: repo
+status: current
+authoritative: true
+owner: wiki
+language: zh-CN
+whenToUse: "When installing, using or contributing to Tiangong Wiki."
+whenToUpdate: "When user commands, setup, package boundaries or contributor workflow change."
+checkPaths:
+  - package.json
+  - src/**
+  - dashboard/**
+  - mcp-server/**
+  - AGENTS.md
+  - .docpact/config.yaml
+lastReviewedAt: 2026-09-19
+lastReviewedCommit: ff89b20ff975aa283c53fb5b6f15c397b029dda4
+---
+
 # @tiangong-ai/wiki
 
 <!-- tiangong-ai-migration-20260914:start -->
@@ -287,3 +307,12 @@ npm test                     # 运行测试
 ## 参与贡献
 
 欢迎提 Issue 和 Pull Request。如果是较大的改动，请先开 Issue 讨论。
+
+## 贡献者文档检查
+
+修改代码前阅读 [AGENTS.md](AGENTS.md)。本仓库使用独立的 `.docpact/config.yaml`，
+父 workspace 检查不能代替子仓检查。使用 docpact 0.1.9
+（`cargo install docpact --version 0.1.9 --locked`），执行
+`docpact validate-config --root . --strict` 和
+`docpact lint --root . --staged --mode enforce`，新文件须先暂存。
+GitHub PR 对明确的 base/head 差异执行相同检查，原有 npm 验证继续保留。

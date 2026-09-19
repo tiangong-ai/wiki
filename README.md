@@ -1,3 +1,23 @@
+---
+docType: guide
+scope: repo
+status: current
+authoritative: true
+owner: wiki
+language: en
+whenToUse: "When installing, using or contributing to Tiangong Wiki."
+whenToUpdate: "When user commands, setup, package boundaries or contributor workflow change."
+checkPaths:
+  - package.json
+  - src/**
+  - dashboard/**
+  - mcp-server/**
+  - AGENTS.md
+  - .docpact/config.yaml
+lastReviewedAt: 2026-09-19
+lastReviewedCommit: ff89b20ff975aa283c53fb5b6f15c397b029dda4
+---
+
 # @tiangong-ai/wiki
 
 <!-- tiangong-ai-migration-20260914:start -->
@@ -287,3 +307,12 @@ npm test                     # run tests
 ## Contributing
 
 Issues and pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## Contributor documentation checks
+
+Read [AGENTS.md](AGENTS.md) before changing the package. This repository has its own
+`.docpact/config.yaml`; parent workspace checks do not replace standalone checks.
+Use docpact 0.1.9 (`cargo install docpact --version 0.1.9 --locked`), then run
+`docpact validate-config --root . --strict` and
+`docpact lint --root . --staged --mode enforce`. Stage new files before linting.
+GitHub PRs enforce the same explicit base/head diff; existing npm validation remains.

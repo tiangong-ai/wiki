@@ -1,0 +1,28 @@
+name: docpact
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: Biaoo/docpact@v0.1.9
+        with:
+          version: 0.1.9
+          args: validate-config --root . --strict
+      - uses: Biaoo/docpact@v0.1.9
+        if: github.event_name == 'pull_request'
+        with:
+          version: 0.1.9
+          args: >-
+            lint --root .
+            --base ${{ github.event.pull_request.base.sha }}
+            --head ${{ github.sha }}
+            --mode enforce
