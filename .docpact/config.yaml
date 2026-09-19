@@ -1,0 +1,161 @@
+version: 1
+layout: repo
+lastReviewedAt: "2026-09-19"
+lastReviewedCommit: "ff89b20ff975aa283c53fb5b6f15c397b029dda4"
+repo:
+  id: wiki
+routing:
+  intents:
+    governance:
+      paths: [AGENTS.md, .docpact/**, .github/workflows/docpact.yml]
+    cli:
+      paths: [src/index.ts, src/commands/**]
+    engine:
+      paths: [src/core/**, src/types/**]
+    service:
+      paths: [src/daemon/**, dashboard/**, mcp-server/**]
+    release:
+      paths: [package.json, package-lock.json, .github/workflows/**, scripts/**]
+coverage:
+  include: [AGENTS.md, README.md, README.zh-CN.md, SKILL.md, .docpact/**, .github/workflows/**, .gitignore, .npmignore, .nvmrc, assets/**, agents/**, src/**, dashboard/**, mcp-server/**, scripts/**, tests/**, references/**, package.json, package-lock.json, tsconfig.json, vitest.config.ts]
+  exclude: [.docpact/runs/**, "**/node_modules/**", "**/dist/**", "**/*.png", "**/*.jpg", "**/*.svg", "**/*.ico", "**/*.woff2"]
+docInventory:
+  include: [AGENTS.md, README.md, README.zh-CN.md, SKILL.md, .docpact/config.yaml, references/**/*.md]
+  exclude: [.docpact/runs/**]
+freshness:
+  warn_after_commits: 50
+  warn_after_days: 90
+  critical_after_days: 180
+rules:
+  - id: wiki-governance
+    scope: repo
+    repo: wiki
+    triggers:
+      - path: AGENTS.md
+        kind: governance
+      - path: README.md
+        kind: governance
+      - path: README.zh-CN.md
+        kind: governance
+      - path: .docpact/**
+        kind: governance
+      - path: .github/workflows/docpact.yml
+        kind: governance
+      - path: .gitignore
+        kind: governance
+      - path: references/**
+        kind: governance
+    requiredDocs:
+      - path: AGENTS.md
+        mode: review_or_update
+      - path: .docpact/config.yaml
+        mode: review_or_update
+      - path: README.md
+        mode: review_or_update
+      - path: README.zh-CN.md
+        mode: review_or_update
+    reason: Standalone governance must remain discoverable without a parent workspace.
+  - id: wiki-cli
+    scope: repo
+    repo: wiki
+    triggers:
+      - path: src/index.ts
+        kind: cli
+      - path: src/commands/**
+        kind: cli
+    requiredDocs:
+      - path: AGENTS.md
+        mode: review_or_update
+      - path: references/cli-interface.md
+        mode: review_or_update
+    reason: Command flags and exit behavior must match the CLI reference.
+  - id: wiki-engine
+    scope: repo
+    repo: wiki
+    triggers:
+      - path: src/operations/**
+        kind: engine
+      - path: src/utils/**
+        kind: engine
+      - path: src/core/**
+        kind: engine
+      - path: src/types/**
+        kind: engine
+    requiredDocs:
+      - path: AGENTS.md
+        mode: review_or_update
+      - path: references/cli-interface.md
+        mode: review_or_update
+      - path: references/template-design-guide.md
+        mode: review_or_update
+      - path: references/wiki-maintenance-instruction.md
+        mode: review_or_update
+    reason: Index, retrieval and user-page contracts must match their maintained references.
+  - id: wiki-service
+    scope: repo
+    repo: wiki
+    triggers:
+      - path: src/daemon/**
+        kind: service
+      - path: dashboard/**
+        kind: service
+      - path: mcp-server/**
+        kind: service
+    requiredDocs:
+      - path: AGENTS.md
+        mode: review_or_update
+      - path: references/centralized-service-deployment.md
+        mode: review_or_update
+      - path: references/troubleshooting.md
+        mode: review_or_update
+    reason: Daemon, dashboard and MCP share service discovery, authentication and deployment contracts.
+  - id: wiki-agent-assets
+    scope: repo
+    repo: wiki
+    triggers:
+      - path: SKILL.md
+        kind: agent-assets
+      - path: agents/**
+        kind: agent-assets
+      - path: assets/**
+        kind: agent-assets
+    requiredDocs:
+      - path: AGENTS.md
+        mode: review_or_update
+      - path: SKILL.md
+        mode: review_or_update
+      - path: references/vault-to-wiki-instruction.md
+        mode: review_or_update
+    reason: Published agent instructions and templates must match vault processing and page creation.
+  - id: wiki-release
+    scope: repo
+    repo: wiki
+    triggers:
+      - path: package.json
+        kind: release
+      - path: package-lock.json
+        kind: release
+      - path: tsconfig.json
+        kind: release
+      - path: vitest.config.ts
+        kind: release
+      - path: .npmignore
+        kind: release
+      - path: .nvmrc
+        kind: release
+      - path: .github/workflows/ci.yml
+        kind: release
+      - path: .github/workflows/publish.yml
+        kind: release
+      - path: scripts/**
+        kind: release
+      - path: tests/**
+        kind: release
+    requiredDocs:
+      - path: AGENTS.md
+        mode: review_or_update
+      - path: README.md
+        mode: review_or_update
+      - path: README.zh-CN.md
+        mode: review_or_update
+    reason: Build, tests and publication must preserve the package entrypoints and user-data boundary.
